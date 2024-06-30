@@ -72,7 +72,7 @@
         setTimeout(() => {
             document.getElementById('loading').style.display = 'none';
             startCountdown();
-        }, 5000);
+        }, 10000);
 
         // Function to start the countdown
         function startCountdown() {
@@ -80,7 +80,7 @@
             countdownElement.style.display = 'block';
 
             // Set the initial countdown time (customizable)
-            let countdownTime = 10; // Change this value to customize the countdown
+            let countdownTime = 200; // Change this value to customize the countdown
 
             // Update the countdown every second
             const interval = setInterval(() => {
