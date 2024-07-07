@@ -3,69 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALTERRA RELEASE</title>
+<title>Welcome to the Club</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url('https://cdn.novacore.app/img/AlterraReleaseBG/AlterraBG.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-
-  .countdown-container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Example: semi-transparent white background */
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  #countdown {
-    font-size: 2rem;
-    margin-top: 20px;
-  }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 24px;
+    }
+    .content {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    .content h1 {
+        font-size: 48px;
+        font-weight: bold;
+    }
 </style>
 </head>
 <body>
-  <div class="countdown-container">
-    <h1>Countdown Timer</h1>
-    <div id="countdown"></div>
-  </div>
-
-  <script>
-    // Function to update the countdown
-    function updateCountdown(endTime) {
-      const now = new Date().getTime();
-      const timeLeft = endTime - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById("countdown").innerHTML = "Countdown expired";
-      } else {
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }
-    }
-
-    // Calculate the target end time (e.g., 10 minutes from now)
-    const duration = 10 * 60 * 1000; // 10 minutes in milliseconds
-    const endTime = new Date().getTime() + duration;
-
-    // Initial call to update countdown
-    updateCountdown(endTime);
-
-    // Update countdown every second
-    const timerInterval = setInterval(function() {
-      updateCountdown(endTime);
-    }, 1000);
-  </script>
+    <div class="loading">
+        <p>Loading...</p>
+    </div>
+    <div class="content" id="content">
+        <h1>Welcome to the home of the club</h1>
+    </div>
+    
+    <script>
+        // Simulate a 3-second loading process
+        setTimeout(function() {
+            // Hide the loading screen
+            document.querySelector('.loading').style.display = 'none';
+            // Show the content
+            document.querySelector('.content').style.display = 'flex';
+        }, 3000);
+    </script>
 </body>
 </html>
